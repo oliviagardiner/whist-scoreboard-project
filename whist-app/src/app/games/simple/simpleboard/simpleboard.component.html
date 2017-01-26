@@ -1,0 +1,132 @@
+<section>
+  <h1>Simple Whist</h1>
+  <article>
+    <table>
+      <thead>
+        <tr>
+          <th colspan="3">{{players[0].name}}</th>
+          <th colspan="3">{{players[1].name}}</th>
+          <th colspan="3" *ngIf="playercount >= 3">{{players[2].name}}</th>
+          <th colspan="3" *ngIf="playercount >= 4">{{players[3].name}}</th>
+          <th colspan="3" *ngIf="playercount >= 5">{{players[4].name}}</th>
+          <th colspan="3" *ngIf="playercount >= 6">{{players[5].name}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Bids</td>
+          <td>Takes</td>
+          <td>Scores</td>
+
+          <td>Bids</td>
+          <td>Takes</td>
+          <td>Scores</td>
+
+          <td *ngIf="playercount >= 3">Bids</td>
+          <td *ngIf="playercount >= 3">Takes</td>
+          <td *ngIf="playercount >= 3">Scores</td>
+
+          <td *ngIf="playercount >= 4">Bids</td>
+          <td *ngIf="playercount >= 4">Takes</td>
+          <td *ngIf="playercount >= 4">Scores</td>
+
+          <td *ngIf="playercount >= 5">Bids</td>
+          <td *ngIf="playercount >= 5">Takes</td>
+          <td *ngIf="playercount >= 5">Scores</td>
+
+          <td *ngIf="playercount >= 6">Bids</td>
+          <td *ngIf="playercount >= 6">Takes</td>
+          <td *ngIf="playercount >= 6">Scores</td>
+        </tr>
+        <tr *ngIf="roundcount >= 1">
+          <td>Bids</td>
+          <td>Takes</td>
+          <td>Scores</td>
+
+          <td>Bids</td>
+          <td>Takes</td>
+          <td>Scores</td>
+
+          <td *ngIf="playercount >= 3">Bids</td>
+          <td *ngIf="playercount >= 3">Takes</td>
+          <td *ngIf="playercount >= 3">Scores</td>
+
+          <td *ngIf="playercount >= 4">Bids</td>
+          <td *ngIf="playercount >= 4">Takes</td>
+          <td *ngIf="playercount >= 4">Scores</td>
+
+          <td *ngIf="playercount >= 5">Bids</td>
+          <td *ngIf="playercount >= 5">Takes</td>
+          <td *ngIf="playercount >= 5">Scores</td>
+
+          <td *ngIf="playercount >= 6">Bids</td>
+          <td *ngIf="playercount >= 6">Takes</td>
+          <td *ngIf="playercount >= 6">Scores</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <!-- <clr-datagrid>
+      <clr-dg-column>
+
+        <clr-dg-row>
+          <clr-dg-cell>Bids</clr-dg-cell>
+          <clr-dg-cell>Takes</clr-dg-cell>
+          <clr-dg-cell>Scores</clr-dg-cell>
+        </clr-dg-row>
+      </clr-dg-column>
+      <clr-dg-column>
+        {{players[1].name}}
+        <clr-dg-row>
+          <clr-dg-cell>Bids</clr-dg-cell>
+          <clr-dg-cell>Takes</clr-dg-cell>
+          <clr-dg-cell>Scores</clr-dg-cell>
+        </clr-dg-row>
+      </clr-dg-column>
+      <clr-dg-column >
+        {{players[2].name}}
+        <clr-dg-row>
+          <clr-dg-cell>Bids</clr-dg-cell>
+          <clr-dg-cell>Takes</clr-dg-cell>
+          <clr-dg-cell>Scores</clr-dg-cell>
+        </clr-dg-row>
+      </clr-dg-column>
+      <clr-dg-column *ngIf="playercount >= 4">
+        {{players[3].name}}
+        <clr-dg-row>
+          <clr-dg-cell>Bids</clr-dg-cell>
+          <clr-dg-cell>Takes</clr-dg-cell>
+          <clr-dg-cell>Scores</clr-dg-cell>
+        </clr-dg-row>
+      </clr-dg-column>
+      <clr-dg-column *ngIf="playercount >= 5">
+        {{players[4].name}}
+        <clr-dg-row>
+          <clr-dg-cell>Bids</clr-dg-cell>
+          <clr-dg-cell>Takes</clr-dg-cell>
+          <clr-dg-cell>Scores</clr-dg-cell>
+        </clr-dg-row>
+      </clr-dg-column>
+      <clr-dg-column *ngIf="playercount >= 6">
+        {{players[5].name}}
+        <clr-dg-row>
+          <clr-dg-cell>Bids</clr-dg-cell>
+          <clr-dg-cell>Takes</clr-dg-cell>
+          <clr-dg-cell>Scores</clr-dg-cell>
+        </clr-dg-row>
+      </clr-dg-column>
+
+
+      <clr-dg-row>
+        <span>
+          <clr-dg-cell>{{round1[0].bids}}</clr-dg-cell>
+          <clr-dg-cell>{{round1[0].takes}}</clr-dg-cell>
+          <clr-dg-cell>{{round1[0].score}}</clr-dg-cell>
+        </span>
+
+      </clr-dg-row>
+
+    </clr-datagrid> -->
+  </article>
+</section>

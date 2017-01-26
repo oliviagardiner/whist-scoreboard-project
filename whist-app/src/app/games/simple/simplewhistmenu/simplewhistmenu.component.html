@@ -1,0 +1,11 @@
+<section class="animated fadeIn" [ngClass]="{fadeOut: isActive}">
+  <article>
+    <img (mouseover)="animateImg()" [ngClass]="{animated: isOn, swing: isOn}" src="../../assets/images/whist.svg" />
+    <h1>Simple Whist</h1>
+    <ul>
+      <li (click)="navigate('simplesetup')" (mouseover)="toggleAnim()" (mouseleave)="toggleAnim()" class="animated" [ngClass]="{rubberBand: isActive, pulse: toggleOn, infinite: toggleOn}">New Game</li>
+      <li class="inactive">Rules</li>
+      <li class="inactive">High Scores</li>
+    </ul>
+  </article>
+</section>
