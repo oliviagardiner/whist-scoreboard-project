@@ -16,6 +16,12 @@ table {
   border-spacing: 0;
 }
 
+
+thead {
+  font-size: 14px;
+  font-weight: 600;
+}
+
 td {
   padding: 5px;
   text-align: center;

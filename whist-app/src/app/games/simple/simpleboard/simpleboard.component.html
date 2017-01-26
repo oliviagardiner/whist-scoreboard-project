@@ -23,111 +23,6 @@
             <span>{{player.score}}</span>
           </td>
         </tr>
-
-        <!-- <tr *ngIf="roundcount >= 1">
-          <td>1</td>
-          <td *ngFor="let player of players">
-            <span *ngIf="bidgame">{{player.round1bid}}</span>
-            <span>{{player.round1take}}</span>
-            <span>{{player.round1score}}</span>
-          </td>
-        </tr>
-        <tr *ngIf="roundcount >= 2">
-          <td>2</td>
-          <td *ngFor="let player of players">
-            <span *ngIf="bidgame">{{player.round2bid}}</span>
-            <span>{{player.round2take}}</span>
-            <span>{{player.round2score}}</span>
-          </td>
-        </tr>
-        <tr *ngIf="roundcount >= 3">
-          <td>3</td>
-          <td *ngFor="let player of players">
-            <span *ngIf="bidgame">{{player.round3bid}}</span>
-            <span>{{player.round3take}}</span>
-            <span>{{player.round3score}}</span>
-          </td>
-        </tr>
-        <tr *ngIf="roundcount >= 4">
-          <td>4</td>
-          <td *ngFor="let player of players">
-            <span *ngIf="bidgame">{{player.round4bid}}</span>
-            <span>{{player.round4take}}</span>
-            <span>{{player.round4score}}</span>
-          </td>
-        </tr>
-        <tr *ngIf="roundcount >= 5">
-          <td>5</td>
-          <td *ngFor="let player of players">
-            <span *ngIf="bidgame">{{player.round5bid}}</span>
-            <span>{{player.round5take}}</span>
-            <span>{{player.round5score}}</span>
-          </td>
-        </tr>
-        <tr *ngIf="roundcount >= 6">
-          <td>6</td>
-          <td *ngFor="let player of players">
-            <span *ngIf="bidgame">{{player.round6bid}}</span>
-            <span>{{player.round6take}}</span>
-            <span>{{player.round6score}}</span>
-          </td>
-        </tr>
-        <tr *ngIf="roundcount >= 7">
-          <td>7</td>
-          <td *ngFor="let player of players">
-            <span *ngIf="bidgame">{{player.round7bid}}</span>
-            <span>{{player.round7take}}</span>
-            <span>{{player.round7score}}</span>
-          </td>
-        </tr>
-        <tr *ngIf="roundcount >= 8">
-          <td>8</td>
-          <td *ngFor="let player of players">
-            <span *ngIf="bidgame">{{player.round8bid}}</span>
-            <span>{{player.round8take}}</span>
-            <span>{{player.round8score}}</span>
-          </td>
-        </tr>
-        <tr *ngIf="roundcount >= 9">
-          <td>9</td>
-          <td *ngFor="let player of players">
-            <span *ngIf="bidgame">{{player.round9bid}}</span>
-            <span>{{player.round9take}}</span>
-            <span>{{player.round9score}}</span>
-          </td>
-        </tr>
-        <tr *ngIf="roundcount >= 10">
-          <td>10</td>
-          <td *ngFor="let player of players">
-            <span *ngIf="bidgame">{{player.round10bid}}</span>
-            <span>{{player.round10take}}</span>
-            <span>{{player.round10score}}</span>
-          </td>
-        </tr>
-        <tr *ngIf="roundcount >= 11">
-          <td>11</td>
-          <td *ngFor="let player of players">
-            <span *ngIf="bidgame">{{player.round11bid}}</span>
-            <span>{{player.round11take}}</span>
-            <span>{{player.round11score}}</span>
-          </td>
-        </tr>
-        <tr *ngIf="roundcount >= 12">
-          <td>12</td>
-          <td *ngFor="let player of players">
-            <span *ngIf="bidgame">{{player.round12bid}}</span>
-            <span>{{player.round12take}}</span>
-            <span>{{player.round12score}}</span>
-          </td>
-        </tr>
-        <tr *ngIf="roundcount >= 13">
-          <td>13</td>
-          <td *ngFor="let player of players">
-            <span *ngIf="bidgame">{{player.round13bid}}</span>
-            <span>{{player.round13take}}</span>
-            <span>{{player.round13score}}</span>
-          </td>
-        </tr> -->
       </tbody>
     </table>
 
@@ -141,35 +36,14 @@
           <tr *ngFor="let player of players, let i=index">
             <td>{{player.name}}</td>
             <td><input #name type="text"/></td>
-            <td><button class="btn btn-link" (click)="pushValue(name.value, player.id)">SET</button></td>
+            <td><button class="btn btn-link" (click)="pushValue(name.value, player.id, initbutton)">SET</button></td>
           </tr>
         </table>
       </div>
       <div class="modal-footer">
           <button type="button" class="btn btn-outline" (click)="opened = false">Cancel</button>
-          <button type="button" class="btn btn-primary" (click)="opened = false" (click)="newRound()" disabled>Start</button>
+          <button #initbutton type="button" class="btn btn-primary" (click)="opened = false" (click)="roundInit()" disabled>Start</button>
       </div>
   </clr-modal>
-
-    <!-- <div class="modal">
-      <div class="modal-dialog in" role="dialog" aria-hidden="true">
-          <div class="modal-content">
-              <div class="modal-header">
-                  <button aria-label="Close" class="close" type="button">
-                      <clr-icon aria-hidden="true" shape="close"></clr-icon>
-                  </button>
-                  <h3 class="modal-title">I have a nice title</h3>
-              </div>
-              <div class="modal-body">
-                  <p>But not much to say...</p>
-              </div>
-              <div class="modal-footer">
-                  <button class="btn btn-outline" type="button">Cancel</button>
-                  <button class="btn btn-primary" type="button">Ok</button>
-              </div>
-          </div>
-      </div>
-    </div>
-    <div class="modal-backdrop in" aria-hidden="true"></div> -->
   </article>
 </section>

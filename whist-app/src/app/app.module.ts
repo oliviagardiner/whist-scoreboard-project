@@ -8,7 +8,7 @@ import { ClarityModule } from 'clarity-angular';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
-import { DatastorageService } from './datastorage.service';
+import { DataService } from './data.service';
 
 import { AppComponent } from './app.component';
 import { LoadingComponent } from './loading/loading.component';
@@ -54,7 +54,7 @@ import { SimpleboardComponent } from './games/simple/simpleboard/simpleboard.com
     ]),
   ],
   providers: [
-    DatastorageService
+    DataService
   ],
   bootstrap: [AppComponent]
 })
