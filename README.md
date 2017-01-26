@@ -14,3 +14,4 @@ Advanced development plans:
 * Render the scoreboard based on the number of players and the selected game type
 * Store high scores with player names and game types
 * Animated
+* Desktop application
