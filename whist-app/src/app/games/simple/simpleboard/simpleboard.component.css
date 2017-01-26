@@ -15,3 +15,39 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
+td {
+  padding: 5px;
+  text-align: center;
+}
+
+span {
+  display: inline-block;
+  min-width: 50px;
+}
+
+.btn.btn-primary {
+  background-color: #ec008b;
+  border-color: #ec008b;
+}
+
+.btn.btn-primary:hover {
+  background-color: black;
+}
+
+.btn.btn-outline {
+  border-color: #ec008b;
+  color: #ec008b;
+}
+
+.btn.btn-outline:hover {
+  background-color: rgba(0, 0, 0, .1);
+}
+
+.btn.btn-link {
+  color: #ec008b;
+}
+
+input {
+  width: 50px;
+}
