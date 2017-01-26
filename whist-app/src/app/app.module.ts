@@ -4,8 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { ClarityModule } from 'clarity-angular';
-import { ModalModule } from 'angular2-modal';
-import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
@@ -54,8 +52,6 @@ import { SimpleboardComponent } from './games/simple/simpleboard/simpleboard.com
       //   ],
       // },
     ]),
-    ModalModule.forRoot(),
-    BootstrapModalModule
   ],
   providers: [
     DatastorageService

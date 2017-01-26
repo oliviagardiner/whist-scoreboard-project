@@ -1,7 +1,5 @@
-import { Component, OnInit, ViewContainerRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DatastorageService } from '../../../datastorage.service';
-import { Overlay } from 'angular2-modal';
-import { Modal } from 'angular2-modal/plugins/bootstrap';
 
 @Component({
   selector: 'app-simpleboard',
@@ -225,7 +223,7 @@ export class SimpleboardComponent implements OnInit {
       ]
     },
     {
-      round2: []
+      id: []
     },
   ]
 
@@ -233,6 +231,7 @@ export class SimpleboardComponent implements OnInit {
   cardcount = 10;
 
   pushValue(value, id) {
+    let playerbid = { id: id, }
     console.log(value, id);
   }
 
@@ -240,12 +239,32 @@ export class SimpleboardComponent implements OnInit {
     console.log();
   }
 
-  player1tempbid = '';
-  player2tempbid = '';
-  player3tempbid = '';
-  player4tempbid = '';
-  player5tempbid = '';
-  player6tempbid = '';
+  tempbid = [
+    {
+      id: '1',
+      bid: '',
+      take: '',
+      score: '',
+    },
+    {
+      id: '2',
+      bid: '',
+      take: '',
+      score: '',
+    },
+    {
+      id: '3',
+      bid: '',
+      take: '',
+      score: '',
+    },
+    {
+      id: '4',
+      bid: '',
+      take: '',
+      score: '',
+    },
+  ]
 
   // initRound() {
   //   this.modal.confirm()
@@ -260,9 +279,7 @@ export class SimpleboardComponent implements OnInit {
   //     .open();
   // }
 
-  constructor(private dataStorage: DatastorageService, overlay: Overlay, vcRef: ViewContainerRef, public modal: Modal) {
-    overlay.defaultViewContainer = vcRef;
-  }
+  constructor(private dataStorage: DatastorageService) { }
 
   ngOnInit() {
   }
