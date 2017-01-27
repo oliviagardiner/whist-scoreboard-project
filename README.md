@@ -14,6 +14,7 @@ While Simple Whist and Pair Whist are relatively basic game modes, and scores ar
 ##Other tools and frameworks
 * Animate.CSS https://daneden.github.io/animate.css/
 * Clarity Design System https://vmware.github.io/clarity/
+* JS server runs on Gomix https://whist-scoreboard.gomix.me/
 
 ##Features
 
