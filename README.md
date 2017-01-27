@@ -14,3 +14,17 @@ While Simple Whist and Pair Whist are relatively basic game modes, and scores ar
 ##Other tools and frameworks
 * Animate.CSS https://daneden.github.io/animate.css/
 * Clarity Design System https://vmware.github.io/clarity/
+
+##Standard features
+* Simple Whist game mode
+* Oh, hell! game mode
+* Set player names
+
+##Additional features
+* Display rules for each game mode
+* Display high scores for each game mode
+* Leading player highlight
+* Trump crd visual display
+
+##Advanced features
+* 80's music player
