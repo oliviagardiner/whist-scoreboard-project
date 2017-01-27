@@ -5,4 +5,27 @@ html {
 body {
   box-sizing: border-box;
   margin: 0;
+  background-color: black;
+}
+
+.btn.btn-primary {
+  background-color: #ec008b;
+  border-color: #ec008b;
+}
+
+.btn.btn-primary:hover {
+  background-color: black;
+}
+
+.btn.btn-outline {
+  border-color: #ec008b;
+  color: #ec008b;
+}
+
+.btn.btn-outline:hover {
+  background-color: rgba(0, 0, 0, .1);
+}
+
+.btn.btn-link {
+  color: #ec008b;
 }

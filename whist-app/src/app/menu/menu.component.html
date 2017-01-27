@@ -3,9 +3,9 @@
     <img (mouseover)="animateImg()" [ngClass]="{animated: isOn, swing: isOn}" src="../../assets/images/whist.svg" />
     <h1>Select game mode</h1>
     <ul>
-      <li (click)="navigate('simple')" (mouseover)="toggleAnim()" (mouseleave)="toggleAnim()" class="animated" [ngClass]="{rubberBand: isActive, pulse: toggleOn, infinite: toggleOn}">Simple</li>
+      <li (click)="navigate('simple/menu')" (mouseover)="toggleAnim()" (mouseleave)="toggleAnim()" class="animated" [ngClass]="{rubberBand: isActive, pulse: toggleOn, infinite: toggleOn}">Simple</li>
       <li class="inactive">Pair</li>
-      <li class="inactive">Diminishing</li>
+      <!-- <li class="inactive">Diminishing</li> -->
       <li class="inactive">Bid</li>
       <li class="inactive">Spades</li>
       <li class="inactive">Oh, hell!</li>

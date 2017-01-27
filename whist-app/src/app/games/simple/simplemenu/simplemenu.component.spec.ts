@@ -3,11 +3,11 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { SimplewhistmenuComponent } from './simplewhistmenu.component';
+import { SimplemenuComponent } from './simplemenu.component';
 
-describe('SimplewhistmenuComponent', () => {
-  let component: SimplewhistmenuComponent;
-  let fixture: ComponentFixture<SimplewhistmenuComponent>;
+describe('SimplemenuComponent', () => {
+  let component: SimplemenuComponent;
+  let fixture: ComponentFixture<SimplemenuComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({

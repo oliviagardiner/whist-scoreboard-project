@@ -30,20 +30,20 @@
 
     <clr-modal [(clrModalOpen)]="opened" [clrModalSize]="'sm'">
       <h3 class="modal-title">On to the next round!</h3>
-      <div class="modal-body">
-        <h4 *ngIf="bidgame">It's time to make our bids!</h4>
-        <table>
-          <tr *ngFor="let player of players, let i=index">
-            <td>{{player.name}}</td>
-            <td><input #name type="text"/></td>
-            <td><button class="btn btn-link" (click)="pushValue(name.value, player.id, initbutton)">SET</button></td>
-          </tr>
-        </table>
-      </div>
-      <div class="modal-footer">
-          <button type="button" class="btn btn-outline" (click)="opened = false">Cancel</button>
-          <button #initbutton type="button" class="btn btn-primary" (click)="opened = false" (click)="roundInit()" disabled>Start</button>
-      </div>
-  </clr-modal>
+        <div class="modal-body">
+          <h4 *ngIf="bidgame">It's time to make our bids!</h4>
+          <table>
+            <tr *ngFor="let player of players, let i=index">
+              <td>{{player.name}}</td>
+              <td><input #name type="text"/></td>
+              <td><button class="btn btn-link" (click)="pushValue(name.value, player.id, initbutton)">SET</button></td>
+            </tr>
+          </table>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline" (click)="opened = false">Cancel</button>
+            <button #initbutton type="button" class="btn btn-primary" (click)="opened = false" (click)="roundInit()" disabled>Start</button>
+        </div>
+    </clr-modal>
   </article>
 </section>

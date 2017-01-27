@@ -1,0 +1,46 @@
+<section class="animated fadeIn" [ngClass]="{fadeOut: isActive}">
+  <article>
+    <img (mouseover)="animateImg()" [ngClass]="{animated: isOn, swing: isOn}" src="../../assets/images/whist.svg" />
+    <h1>Simple Whist</h1>
+    <ul>
+      <li (click)="opened = true" (mouseover)="toggleAnim()" (mouseleave)="toggleAnim()" class="animated" [ngClass]="{rubberBand: isActive, pulse: toggleOn, infinite: toggleOn}">New Game</li>
+      <li class="inactive">Rules</li>
+      <li class="inactive">High Scores</li>
+    </ul>
+    <a (click)="navigate('menu')">BACK</a>
+
+    <clr-modal [(clrModalOpen)]="opened" [clrModalSize]="'lg'">
+      <h3 class="modal-title">Game setup</h3>
+        <div class="modal-body">
+          <table>
+            <tr>
+              <td>Player 1 name:</td>
+              <td><input #nameone type="text"/></td>
+              <td><button class="btn btn-link" (click)="pushValue(nameone.value, '1', initbutton)">SET</button></td>
+            </tr>
+            <tr>
+              <td>Player 2 name:</td>
+              <td><input #nametwo type="text"/></td>
+              <td><button class="btn btn-link" (click)="pushValue(nametwo.value, '2', initbutton)">SET</button></td>
+            </tr>
+            <tr *ngIf="playercount >= 3">
+              <td>Player 3 name:</td>
+              <td><input #namethree type="text"/></td>
+              <td><button class="btn btn-link" (click)="pushValue(namethree.value, '3', initbutton)">SET</button></td>
+            </tr>
+            <tr *ngIf="playercount >= 4">
+              <td>Player 4 name:</td>
+              <td><input #namefour type="text"/></td>
+              <td><button class="btn btn-link" (click)="pushValue(namefour.value, '4', initbutton)">SET</button></td>
+            </tr>
+          </table>
+          <button class="add" (click)="addPlayer()">+</button>
+          <button class="remove" (click)="removePlayer()">-</button>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline" (click)="opened = false">Cancel</button>
+            <button #initbutton type="button" class="btn btn-primary" (click)="opened = false" (click)="playerInit()" disabled>Start</button>
+        </div>
+    </clr-modal>
+  </article>
+</section>

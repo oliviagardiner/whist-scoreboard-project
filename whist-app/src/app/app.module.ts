@@ -13,7 +13,7 @@ import { DataService } from './data.service';
 import { AppComponent } from './app.component';
 import { LoadingComponent } from './loading/loading.component';
 import { MenuComponent } from './menu/menu.component';
-import { SimplewhistmenuComponent } from './games/simple/simplewhistmenu/simplewhistmenu.component';
+import { SimplemenuComponent } from './games/simple/simplemenu/simplemenu.component';
 import { SimplesetupComponent } from './games/simple/simplesetup/simplesetup.component';
 import { SimpleboardComponent } from './games/simple/simpleboard/simpleboard.component';
 
@@ -22,7 +22,7 @@ import { SimpleboardComponent } from './games/simple/simpleboard/simpleboard.com
     AppComponent,
     LoadingComponent,
     MenuComponent,
-    SimplewhistmenuComponent,
+    SimplemenuComponent,
     SimplesetupComponent,
     SimpleboardComponent
   ],
@@ -45,6 +45,8 @@ import { SimpleboardComponent } from './games/simple/simpleboard/simpleboard.com
       //     { path: 'board', component: SimpleboardComponent },
       //   ],
       // },
+      { path: 'simple/menu', component: SimplemenuComponent },
+      { path: 'simple/setup', component: SimplesetupComponent },
       { path: 'simple/board', component: SimpleboardComponent },
       // { path: 'hell', component: HellmenuComponent,
       //   childen: [
