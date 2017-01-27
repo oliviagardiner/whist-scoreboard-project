@@ -5,7 +5,9 @@ html {
 body {
   box-sizing: border-box;
   margin: 0;
-  background-color: black;
+  background: url('./assets/images/nrw-bg.svg');
+  background-size: 1500px;
+  background-position: center;
 }
 
 .btn.btn-primary {
@@ -30,7 +32,8 @@ body {
   color: #ec008b;
 }
 
-.spinner {
+.loading {
   left: 50%;
   top: 250px;
+  color: white;
 }

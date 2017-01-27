@@ -26,7 +26,7 @@ export class DataService {
   pushToRounds(obj) {
     // return this.http.post('./app/gamedata/roundsdata.json', { "id": obj })
       // .map((res) => res.json());
-    return this.http.post('https://whist-scoreboard.gomix.me/app/gamedata/roundsdata', [{ "id": obj }])
+    return this.http.post('https://whist-scoreboard.gomix.me/app/gamedata/roundsdata', JSON.stringify(obj), {headers: this.headers})
       .map((res) => res.json());
   }
 

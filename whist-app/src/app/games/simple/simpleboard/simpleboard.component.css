@@ -3,6 +3,7 @@ section {
   flex-direction: column;
   justify-content: flex-start;
   position: relative;
+  font-family: 'Exo';
 }
 
 able, caption, tbody, tfoot, thead, tr, th, td {
@@ -11,7 +12,11 @@ able, caption, tbody, tfoot, thead, tr, th, td {
   border: 0;
   font-size: 100%;
   font: inherit;
-  vertical-align: baseline;
+}
+
+h1 {
+  color: rgb(0, 232, 255);
+  font-size: 18px;
 }
 
 table {
@@ -22,9 +27,38 @@ table {
 }
 
 thead {
+  color: #00e8ff;
   font-size: 14px;
   font-weight: 600;
-  border-bottom: 1px solid orange;
+  border-bottom: 1px solid #ec008b;
+}
+
+.mainscore {
+  color: #00e8ff;
+}
+
+.subhead {
+  border-bottom: 1px solid #ec008b;
+  /*background-color: rgba(255, 255, 255, .2);*/
+  color: orange;
+}
+
+.scoreboard {
+  color: white;
+  border-bottom: none;
+}
+
+.divider {
+  border-right: 1px solid #ec008b;
+}
+
+tr, tr:nth-child(2n) {
+  margin: 0;
+  padding: 0;
+  min-width: 700px;
+  width: 100%;
+  max-height: 30px;
+  /*color: #00e8ff;*/
 }
 
 tr:nth-child(2n) {
@@ -36,12 +70,24 @@ tr:hover {
 }
 
 td {
-  padding: 5px;
+  margin: 0;
+  padding: 0;
+  min-width: 100px;
+  height: 30px;
   text-align: center;
 }
 
+.narrow {
+  max-width: 50px;
+  height: 30px;
+  border-right: 1px solid #ec008b;
+}
+
 span {
-  display: inline-block;
+  display: block;
+  float: left;
+  height: 30px;
+  line-height: 30px;
   min-width: 50px;
 }
 
@@ -93,6 +139,11 @@ input {
   left: 30px;
 }
 
+.topscore span {
+  display: inline-block;
+  width: 70px;
+}
+
 .topscore thead {
   font-weight: normal;
 }
@@ -113,4 +164,44 @@ input {
   background-size: 120px;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.btn.btn-outline:hover {
+ background-color: rgba(255, 255, 255, .2);
+}
+
+.hide {
+ height: 0px;
+ opacity: 0;
+}
+
+button.btn.btn-sm.btn-link.intable {
+ color: orange;
+ max-width: 60px;
+}
+
+button.btn.btn-sm.btn-link.intable:hover {
+ color: #ec008b;
+}
+
+.edit {
+ max-width: 60px;
+}
+
+article.statistics {
+ position: absolute;
+ top: 600px;
+ left: 20px;
+}
+
+#audiobar {
+    position: fixed;
+    z-index: 100;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+audio -webkit-media-controls, -webkit-media-controls-panel, -webkit-media-controls-overlay-enclosure,  -webkit-media-controls-enclosure {
+  background: linear-gradient(to top, #ec008b 0%, orange 100%);
 }

@@ -14,12 +14,18 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class SimpleboardComponent implements OnInit {
 
   isOn:boolean = false;
+  isActive:boolean = false;
+  isShown:boolean = false;
 
   animateImg() {
     this.isOn = true;
     setTimeout(() => {
       this.isOn = false;
     }, 1000);
+  }
+
+  hideNote() {
+    this.isShown = true;
   }
 
   bidgame = true;
@@ -39,7 +45,7 @@ export class SimpleboardComponent implements OnInit {
         }
       }
     } else if (this.temp.length < this.playercount) {
-      this.temp.push({ "id": id, "bid": value, "take": "", "score": ""});
+      this.temp.push({ "id": id, "bid": value, "take": " ", "score": " "});
       if (this.temp.length === this.playercount) {
         button.disabled = false;
       }
@@ -51,16 +57,14 @@ export class SimpleboardComponent implements OnInit {
     console.log('round init temp', this.temp);
     this.data.pushToRounds(this.temp)
       .toPromise()
-      .then(() => this.clearTemp())
-      .then(() => console.log('cleared temp', this.temp))
-      .catch(this.handleError);
-    // this.roundcount++;
-    // this.cardcount--;
-    // this.fetchRounds();
-    // console.log(this.rounds);
+      .then(() => this.fetchRounds())
+      .catch(this.handleError)
+      .then(() => this.roundcount++)
   }
 
   temp = [];
+  // .then(() => this.clearTemp())
+  // .then(() => console.log('cleared temp', this.temp))
 
   clearTemp() {
     this.temp = [];
@@ -68,6 +72,29 @@ export class SimpleboardComponent implements OnInit {
 
   players = [];
   rounds = [];
+
+  setTake(value, id, button) {
+    if (value === '') {
+      console.log('Empty string')
+    } else if (this.temp.length === this.playercount) {
+      for (let i=0; i < this.temp.length; i++) {
+        if (this.temp[i].id === id) {
+          this.temp[i].take = value;
+          console.log('Player ' + id + ' successfully updated take to ' + value);
+        }
+      }
+    } else if (this.temp.length < this.playercount) {
+        // this.temp.take = value;
+      if (this.temp.length === this.playercount) {
+        button.disabled = false;
+      }
+      console.log('Player ' + id + ' successfully set takes to ' + value);
+    }
+  }
+
+  calcInit() {
+
+  }
 
   fetchNames() {
     this.data.getPlayerNames()
@@ -81,15 +108,18 @@ export class SimpleboardComponent implements OnInit {
 
   fetchRounds() {
     this.data.getRounds()
-      .subscribe(
-        data => this.rounds.push(data),
-        error => console.error('Error: ' + error),
-        () => console.log('Fetch rounds completed!')
-      );
+      .toPromise()
+      .then(data => this.rounds.push(data))
+      .then(() => console.log('Fetch rounds completed!'))
+      .catch(this.handleError)
+      .then(() => console.log('after fetch rounds', this.rounds));
   }
 
   quitGame() {
-    this.router.navigateByUrl('/menu');
+    this.isActive = true;
+    setTimeout(() => {
+      this.router.navigateByUrl('/menu');
+    }, 1000);
   }
 
   private handleError(error: any): Promise<any> {
@@ -109,7 +139,6 @@ export class SimpleboardComponent implements OnInit {
 
   ngOnInit() {
     this.fetchNames();
-    this.fetchRounds();
   }
 
 }

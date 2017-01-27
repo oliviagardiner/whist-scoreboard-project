@@ -38,22 +38,10 @@ import { SimpleboardComponent } from './games/simple/simpleboard/simpleboard.com
           // { path: '', redirectTo: 'menu', pathMatch: 'full' },
         ],
       },
-      // { path: 'simple', component: SimplewhistmenuComponent,
-      //   children: [
-      //     { path: '', redirectTo: 'simple', pathMatch: 'full' },
-      //     { path: 'setup', component: SimplesetupComponent },
-      //     { path: 'board', component: SimpleboardComponent },
-      //   ],
-      // },
       { path: 'simple', redirectTo: 'simple/menu', pathMatch: 'full' },
       { path: 'simple/menu', component: SimplemenuComponent },
       { path: 'simple/setup', component: SimplesetupComponent },
       { path: 'simple/board', component: SimpleboardComponent },
-      // { path: 'hell', component: HellmenuComponent,
-      //   childen: [
-      //     { path: '', redirectTo: 'hell', pathMatch: 'full'}
-      //   ],
-      // },
     ]),
   ],
   providers: [

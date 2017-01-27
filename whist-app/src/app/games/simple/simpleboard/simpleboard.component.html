@@ -1,35 +1,40 @@
-<section class="animated fadeIn">
+<section class="animated fadeIn" [ngClass]="{fadeOut: isActive}">
   <img (mouseover)="animateImg()" [ngClass]="{animated: isOn, swing: isOn}" src="../../assets/images/whist.svg" />
   <h1>Simple Whist</h1>
   <article>
+
     <table class="mainscore">
       <thead>
-        <th>Round</th>
-        <th *ngFor="let player of players">{{player.name}}</th>
+        <tr>
+          <td class="narrow" colspan="1">Round</td>
+          <th *ngFor="let player of players" colspan="3">{{player.name}}</th>
+          <th colspan="2"></th>
+        </tr>
       </thead>
       <tbody>
-        <tr>
-          <td></td>
-          <td *ngFor="let player of players">
+        <tr class="subhead">
+          <td class="narrow" colspan="1"></td>
+          <td *ngFor="let player of players" colspan="3">
             <span *ngIf="bidgame">Bids</span>
             <span>Takes</span>
             <span>Score</span>
           </td>
+          <td colspan="2"></td>
         </tr>
-        <span *ngIf="roundcount > 0">
-          <tr *ngFor="let round of rounds, let i=index">
-            <td>{{i+1}}</td>
-            <td *ngFor="let player of round['id']">
-              <span *ngIf="bidgame">{{player.bid}}</span>
-              <span>{{player.take}}</span>
-              <span>{{player.score}}</span>
-            </td>
-          </tr>
-        </span>
+        <tr *ngFor="let round of rounds, let i=index">
+          <td class="narrow" colspan="1">{{i+1}}</td>
+          <td *ngFor="let player of round['id']" colspan="3">
+            <span *ngIf="bidgame">{{player.bid}}</span>
+            <span>{{player.take}}</span>
+            <span class="divider">{{player.score}}</span>
+          </td>
+          <td colspan="1" class="edit"><button class="intable btn btn-sm btn-link" (click)="editor = true">Edit</button></td>
+          <td colspan="1" class="edit"><button class="intable btn btn-sm btn-link">Calc</button></td>
+        </tr>
       </tbody>
     </table>
 
-    <div *ngIf="roundcount < 1" class="beginning animated infinite pulse">
+    <div *ngIf="roundcount < 1" class="beginning animated infinite pulse" [ngClass]="{hide: isShown}" (mouseover)="hideNote()">
       Click to begin first round!
     </div>
 
@@ -45,12 +50,12 @@
 
     <button class="btn btn-primary newround" (click)="opened = true">New Round</button>
 
-    <clr-modal [(clrModalOpen)]="opened" [clrModalSize]="'sm'">
+    <clr-modal [(clrModalOpen)]="opened" [clrModalSize]="'m'">
       <h3 class="modal-title">On to the next round!</h3>
         <div class="modal-body">
           <h4 *ngIf="bidgame">It's time to make our bids!</h4>
           <table>
-            <tr *ngFor="let player of players, let i=index">
+            <tr class="modaltable" *ngFor="let player of players, let i=index">
               <td>{{player.name}}</td>
               <td><input #name type="text"/></td>
               <td><button class="btn btn-link" (click)="pushValue(name.value, player.id, initbutton)">SET</button></td>
@@ -62,12 +67,29 @@
             <button #initbutton type="button" class="btn btn-primary" (click)="opened = false" (click)="roundInit()" disabled>Start</button>
         </div>
     </clr-modal>
+
+    <clr-modal [(clrModalOpen)]="editor" [clrModalSize]="'m'">
+      <h3 class="modal-title">Enter the takes!</h3>
+        <div class="modal-body">
+          <table>
+            <tr class="modaltable" *ngFor="let player of players, let i=index">
+              <td>{{player.name}}</td>
+              <td><input #call type="text"/></td>
+              <td><button class="btn btn-link" (click)="setTake(call.value, player.id, calcbutton)">SET</button></td>
+            </tr>
+          </table>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline" (click)="editor = false">Cancel</button>
+            <button #calcbutton type="button" class="btn btn-primary" (click)="editor = false" (click)="calcInit()" disabled>Calculate</button>
+        </div>
+    </clr-modal>
   </article>
 
   <article class="leaderboard">
     <table class="topscore">
       <thead>
-          <th colspan="3">SCOREBOARD</th>
+          <th colspan="3" class="scoreboard">SCOREBOARD</th>
       </thead>
       <tbody>
         <tr *ngFor="let player of players, let i=index">
@@ -78,4 +100,17 @@
       </tbody>
     </table>
   </article>
+
+  <!-- <article id="audiobar">
+    <audio src="" controls></audio>
+  </article> -->
+
+  <!-- <article class="statistics">
+    <div>
+      <span> Cards in hand:</span><span>13</span>
+    </div>
+    <div>
+      <span> Time elapsed:</span><span>6:14</span>
+    </div>
+  </article> -->
 </section>
