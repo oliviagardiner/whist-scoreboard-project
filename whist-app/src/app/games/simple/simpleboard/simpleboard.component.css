@@ -1,6 +1,8 @@
 section {
   height: 100vh;
   flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
 }
 
 able, caption, tbody, tfoot, thead, tr, th, td {
@@ -11,15 +13,26 @@ able, caption, tbody, tfoot, thead, tr, th, td {
   font: inherit;
   vertical-align: baseline;
 }
+
 table {
   border-collapse: collapse;
   border-spacing: 0;
+  margin-bottom: 50px;
+  min-width: 200px;
 }
-
 
 thead {
   font-size: 14px;
   font-weight: 600;
+  border-bottom: 1px solid orange;
+}
+
+tr:nth-child(2n) {
+  background-color: rgba(255, 255, 255, .1);
+}
+
+tr:hover {
+  background-color: rgba(255, 255, 255, .2);
 }
 
 td {
@@ -56,4 +69,48 @@ span {
 
 input {
   width: 50px;
+}
+
+.newround {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.exit {
+  position: absolute;
+  top: 20px;
+  right: 150px;
+}
+
+.topscore {
+  background: linear-gradient(to top, #ec008b 0%, orange 100%);
+  border-radius: 5px;
+  color: white;
+  text-align: center;
+  position: absolute;
+  top: 30px;
+  left: 30px;
+}
+
+.topscore thead {
+  font-weight: normal;
+}
+
+.topscore td {
+  height: 35px;
+}
+
+.beginning {
+  height: 120px;
+  width: 250px;
+  text-align: center;
+  line-height: 120px;
+  border: 2px solid #626262;
+  color: #626262;
+  border-radius: 5px;
+  background: url('/../../../../assets/images/arrow.svg');
+  background-size: 120px;
+  background-repeat: no-repeat;
+  background-position: center;
 }

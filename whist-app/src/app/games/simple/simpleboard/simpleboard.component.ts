@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../../data.service';
 import 'rxjs/add/operator/toPromise';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-simpleboard',
@@ -13,11 +13,20 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class SimpleboardComponent implements OnInit {
 
-  bidgame = true;
-  playercount = 4;
+  isOn:boolean = false;
 
-  roundcount = 4;
-  cardcount = 10;
+  animateImg() {
+    this.isOn = true;
+    setTimeout(() => {
+      this.isOn = false;
+    }, 1000);
+  }
+
+  bidgame = true;
+  playercount;
+
+  roundcount = 0;
+  cardcount = 13;
 
   pushValue(value, id, button) {
     if (value === '') {
@@ -57,25 +66,30 @@ export class SimpleboardComponent implements OnInit {
     this.temp = [];
   }
 
-  players;
-  rounds;
+  players = [];
+  rounds = [];
 
   fetchNames() {
     this.data.getPlayerNames()
-      .subscribe(
-        data => this.players = data,
-        error => console.error('Error: ' + error),
-        () => console.log('Fetch players completed!')
-      );
+      .toPromise()
+      .then((data) => this.players = data)
+      .then(() => this.playercount = this.players.length)
+      .then(() => console.log('Fetch players completed!'))
+      .catch(this.handleError)
+      .then(() => console.log(this.players));
   }
 
   fetchRounds() {
     this.data.getRounds()
       .subscribe(
-        data => this.rounds = data,
+        data => this.rounds.push(data),
         error => console.error('Error: ' + error),
         () => console.log('Fetch rounds completed!')
       );
+  }
+
+  quitGame() {
+    this.router.navigateByUrl('/menu');
   }
 
   private handleError(error: any): Promise<any> {
@@ -85,7 +99,7 @@ export class SimpleboardComponent implements OnInit {
 
   // constructor(private data: DataService) { }
 
-  constructor(private data: DataService, route: ActivatedRoute) {
+  constructor(private data: DataService, private router: Router, route: ActivatedRoute) {
    route.params.subscribe(param => {
        let id = param['id '];
        console.log('Stuff has changed');

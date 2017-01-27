@@ -29,3 +29,8 @@ body {
 .btn.btn-link {
   color: #ec008b;
 }
+
+.spinner {
+  left: 50%;
+  top: 250px;
+}

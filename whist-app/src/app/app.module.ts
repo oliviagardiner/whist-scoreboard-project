@@ -45,6 +45,7 @@ import { SimpleboardComponent } from './games/simple/simpleboard/simpleboard.com
       //     { path: 'board', component: SimpleboardComponent },
       //   ],
       // },
+      { path: 'simple', redirectTo: 'simple/menu', pathMatch: 'full' },
       { path: 'simple/menu', component: SimplemenuComponent },
       { path: 'simple/setup', component: SimplesetupComponent },
       { path: 'simple/board', component: SimpleboardComponent },

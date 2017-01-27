@@ -1,7 +1,8 @@
-<section>
+<section class="animated fadeIn">
+  <img (mouseover)="animateImg()" [ngClass]="{animated: isOn, swing: isOn}" src="../../assets/images/whist.svg" />
   <h1>Simple Whist</h1>
   <article>
-    <table>
+    <table class="mainscore">
       <thead>
         <th>Round</th>
         <th *ngFor="let player of players">{{player.name}}</th>
@@ -15,18 +16,34 @@
             <span>Score</span>
           </td>
         </tr>
-        <tr *ngFor="let round of rounds, let i=index">
-          <td>{{i+1}}</td>
-          <td *ngFor="let player of round['id']">
-            <span *ngIf="bidgame">{{player.bid}}</span>
-            <span>{{player.take}}</span>
-            <span>{{player.score}}</span>
-          </td>
-        </tr>
+        <span *ngIf="roundcount > 0">
+          <tr *ngFor="let round of rounds, let i=index">
+            <td>{{i+1}}</td>
+            <td *ngFor="let player of round['id']">
+              <span *ngIf="bidgame">{{player.bid}}</span>
+              <span>{{player.take}}</span>
+              <span>{{player.score}}</span>
+            </td>
+          </tr>
+        </span>
       </tbody>
     </table>
 
-    <button class="btn btn-primary" (click)="opened = true">New Round</button>
+    <div *ngIf="roundcount < 1" class="beginning animated infinite pulse">
+      Click to begin first round!
+    </div>
+
+    <button class="btn btn-outline exit" (click)="pop = true">Exit Game</button>
+
+    <clr-modal [(clrModalOpen)]="pop" [clrModalSize]="'sm'">
+      <h3 class="modal-title">Are you sure you want to quit?</h3>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline" (click)="pop = false">No</button>
+        <button #initbutton type="button" class="btn btn-primary" (click)="pop = false" (click)="quitGame()">Yes</button>
+      </div>
+    </clr-modal>
+
+    <button class="btn btn-primary newround" (click)="opened = true">New Round</button>
 
     <clr-modal [(clrModalOpen)]="opened" [clrModalSize]="'sm'">
       <h3 class="modal-title">On to the next round!</h3>
@@ -45,5 +62,20 @@
             <button #initbutton type="button" class="btn btn-primary" (click)="opened = false" (click)="roundInit()" disabled>Start</button>
         </div>
     </clr-modal>
+  </article>
+
+  <article class="leaderboard">
+    <table class="topscore">
+      <thead>
+          <th colspan="3">SCOREBOARD</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let player of players, let i=index">
+          <span>{{i+1}}</span>
+          <span>{{player.name}}</span>
+          <span>{{player.currentscore}}</span>
+        </tr>
+      </tbody>
+    </table>
   </article>
 </section>
