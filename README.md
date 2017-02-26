@@ -8,13 +8,14 @@ While Simple Whist and Pair Whist are relatively basic game modes, and scores ar
 
 ##Which language?
 * Angular2 and TypeScript frontend
-* PHP or JavaScript backend and a bit of SQL
+* JavaScript backend and a bit of SQL to store high scores
 * Planned: Electron to build a desktop application http://electron.atom.io/
 
 ##Other tools and frameworks
 * Animate.CSS https://daneden.github.io/animate.css/
 * Clarity Design System https://vmware.github.io/clarity/
 * JS server runs on Gomix https://whist-scoreboard.gomix.me/
+* Continous deployment to heroku https://whist-scoreboard.herokuapp.com
 
 ##Features
 
